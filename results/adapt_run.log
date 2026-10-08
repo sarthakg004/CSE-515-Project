@@ -1,0 +1,62 @@
+
+cross-orientation: 8725 held-out samples, 22 classes
+  [head] learning rate 0.0001
+    k=0        0 labelled   accuracy 0.3398 +/- 0.0042
+    k=1       22 labelled   accuracy 0.3427 +/- 0.0062
+    k=5      110 labelled   accuracy 0.3455 +/- 0.0075
+    k=20     440 labelled   accuracy 0.3253 +/- 0.0099
+    k=50    1100 labelled   accuracy 0.3153 +/- 0.0022
+    k=100   2200 labelled   accuracy 0.3163 +/- 0.0035
+    k=200   4400 labelled   accuracy 0.3523 +/- 0.0052
+    k=300   6600 labelled   accuracy 0.3938 +/- 0.0047
+  [full] learning rate 0.0003
+    k=0        0 labelled   accuracy 0.3398 +/- 0.0042
+    k=1       22 labelled   accuracy 0.3397 +/- 0.0081
+    k=5      110 labelled   accuracy 0.3035 +/- 0.0090
+    k=20     440 labelled   accuracy 0.2025 +/- 0.0065
+    k=50    1100 labelled   accuracy 0.2146 +/- 0.0144
+    k=100   2200 labelled   accuracy 0.3124 +/- 0.0076
+    k=200   4400 labelled   accuracy 0.4808 +/- 0.0065
+    k=300   6600 labelled   accuracy 0.5484 +/- 0.0093
+
+cross-position: 8372 held-out samples, 22 classes
+  [head] learning rate 0.0001
+    k=0        0 labelled   accuracy 0.7101 +/- 0.0041
+    k=1       22 labelled   accuracy 0.6989 +/- 0.0036
+    k=5      110 labelled   accuracy 0.6813 +/- 0.0005
+    k=20     440 labelled   accuracy 0.6239 +/- 0.0058
+    k=50    1100 labelled   accuracy 0.5918 +/- 0.0047
+    k=100   2200 labelled   accuracy 0.5700 +/- 0.0025
+    k=200   4400 labelled   accuracy 0.5947 +/- 0.0023
+    k=300   6600 labelled   accuracy 0.6170 +/- 0.0019
+  [full] learning rate 0.0003
+    k=0        0 labelled   accuracy 0.7101 +/- 0.0041
+    k=1       22 labelled   accuracy 0.6375 +/- 0.0080
+    k=5      110 labelled   accuracy 0.5958 +/- 0.0059
+    k=20     440 labelled   accuracy 0.4937 +/- 0.0132
+    k=50    1100 labelled   accuracy 0.4754 +/- 0.0060
+    k=100   2200 labelled   accuracy 0.5321 +/- 0.0091
+    k=200   4400 labelled   accuracy 0.6211 +/- 0.0058
+    k=300   6600 labelled   accuracy 0.6750 +/- 0.0052
+
+cross-user: 3370 held-out samples, 9 classes
+  [head] learning rate 0.0001
+    k=0        0 labelled   accuracy 0.5836 +/- 0.0042
+    k=1        9 labelled   accuracy 0.5886 +/- 0.0099
+    k=5       45 labelled   accuracy 0.5900 +/- 0.0043
+    k=20     180 labelled   accuracy 0.5955 +/- 0.0021
+    k=50     450 labelled   accuracy 0.5821 +/- 0.0037
+    k=100    900 labelled   accuracy 0.5731 +/- 0.0116
+    k=200   1800 labelled   accuracy 0.5289 +/- 0.0145
+    k=300   2700 labelled   accuracy 0.5572 +/- 0.0196
+  [full] learning rate 0.0003
+    k=0        0 labelled   accuracy 0.5836 +/- 0.0042
+    k=1        9 labelled   accuracy 0.5572 +/- 0.0154
+    k=5       45 labelled   accuracy 0.5542 +/- 0.0106
+    k=20     180 labelled   accuracy 0.5189 +/- 0.0155
+    k=50     450 labelled   accuracy 0.5085 +/- 0.0130
+    k=100    900 labelled   accuracy 0.5403 +/- 0.0112
+    k=200   1800 labelled   accuracy 0.5915 +/- 0.0101
+    k=300   2700 labelled   accuracy 0.6338 +/- 0.0159
+
+wrote 48 rows to results/adaptation.jsonl

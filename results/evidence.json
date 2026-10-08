@@ -1,0 +1,75 @@
+{
+ "similarity": {
+  "same recording condition": [
+   0.5653652548789978,
+   0.07437577098608017,
+   1500
+  ],
+  "same gesture, different condition": [
+   0.4489514231681824,
+   0.07112106680870056,
+   1500
+  ],
+  "different gesture": [
+   0.43664681911468506,
+   0.07239719480276108,
+   1385
+  ]
+ },
+ "one_nn": {
+  "cross-orientation/cross": {
+   "acc": 0.1013,
+   "mean_sim": 0.6287,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-orientation/in_domain": {
+   "acc": 0.3063,
+   "mean_sim": 0.6504,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-orientation/in_domain_grouped": {
+   "acc": 0.2307,
+   "mean_sim": 0.6445,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-position/cross": {
+   "acc": 0.265,
+   "mean_sim": 0.6517,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-position/in_domain": {
+   "acc": 0.3133,
+   "mean_sim": 0.6515,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-position/in_domain_grouped": {
+   "acc": 0.2333,
+   "mean_sim": 0.6476,
+   "n_classes": 22,
+   "chance": 0.0455
+  },
+  "cross-user/cross": {
+   "acc": 0.25,
+   "mean_sim": 0.6511,
+   "n_classes": 9,
+   "chance": 0.1111
+  },
+  "cross-user/in_domain": {
+   "acc": 0.3807,
+   "mean_sim": 0.6572,
+   "n_classes": 9,
+   "chance": 0.1111
+  },
+  "cross-user/in_domain_grouped": {
+   "acc": 0.328,
+   "mean_sim": 0.65,
+   "n_classes": 9,
+   "chance": 0.1111
+  }
+ }
+}

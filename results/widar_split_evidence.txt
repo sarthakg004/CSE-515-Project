@@ -1,0 +1,92 @@
+Widar3.0: 43652 samples, 22 gestures, 17 volunteers
+
+==============================================================================
+EVIDENCE 1: what the benchmark's own split does
+==============================================================================
+train 34926 samples, test 8726 samples
+
+factor          in train   in test   in BOTH   verdict
+user                  17        17        17   leaked, nothing held out
+position               8         8         8   leaked, nothing held out
+orientation            5         5         5   leaked, nothing held out
+
+Every volunteer, position and orientation appears on both sides, so the test
+set contains no condition the model has not already trained on.
+
+==============================================================================
+EVIDENCE 2: the dataset is not balanced across volunteers
+==============================================================================
+volunteer     gestures   samples    share
+user 1              22      9916    22.7%
+user 2              22     11248    25.8%
+user 3              12      7124    16.3%
+user 4               6       750     1.7%
+user 5               9      1875     4.3%
+user 6               7      1499     3.4%
+user 7               6       749     1.7%
+user 8               6       747     1.7%
+user 9               6       749     1.7%
+user 10              9      1125     2.6%
+user 11              9      1125     2.6%
+user 12              9      1125     2.6%
+user 13              9      1125     2.6%
+user 14              9      1125     2.6%
+user 15              9      1122     2.6%
+user 16              9      1123     2.6%
+user 17              9      1125     2.6%
+
+Users 1 and 2 hold 48 percent of the data and are the only two who performed
+gestures 13 to 22. This is why the cross-user protocol uses 9 gestures.
+
+==============================================================================
+THE HONEST SPLITS WE WILL USE
+==============================================================================
+protocol            held out           classes   train    test  train %
+cross-orientation   orientation [5]         22   34927    8725    80.0%
+                    all 5 orientations cover all 22 gestures evenly
+cross-position      position [5]            22   35280    8372    80.8%
+                    positions 6 to 8 are too sparse to hold out, so we hold out position 5
+cross-user          user [15, 16, 17]        9   26648    3370    88.8%
+                    restricted to the 9 gestures that 12 volunteers all performed
+
+All three pass the leak check. Each also carries a matched in-domain split
+over the same samples, so every cross-domain number has a fair partner.
+
+==============================================================================
+EVIDENCE 4: what a pair of recordings has in common, measured on raw data
+==============================================================================
+Mean cosine similarity between two BVP samples, with no model involved.
+
+the pair shares                             pairs   cosine      sd
+same recording condition                     1500    0.565   0.074
+same gesture, different condition            1500    0.449   0.071
+different gesture                            1385    0.437   0.072
+
+Sharing a gesture is worth +0.012 in similarity. Sharing a recording
+condition is worth +0.129, which is 10.5 times more. Two recordings
+resemble each other far more for coming from the same person standing in the
+same place than for being the same gesture. A model rewarded for accuracy on a
+condition-mixed split is therefore rewarded for recognising the condition.
+
+==============================================================================
+EVIDENCE 5: the benchmark's split can be answered by lookup, with no learning
+==============================================================================
+Each test sample takes the gesture label of the single most similar training
+sample. No training, no parameters, raw BVP only.
+
+protocol            arm                  classes  chance  1-NN acc  mean sim
+cross-orientation   cross                     22   0.045     0.101     0.629
+                    in_domain                 22   0.045     0.306     0.650
+                    in_domain_grouped         22   0.045     0.231     0.644
+cross-position      cross                     22   0.045     0.265     0.652
+                    in_domain                 22   0.045     0.313     0.651
+                    in_domain_grouped         22   0.045     0.233     0.648
+cross-user          cross                      9   0.111     0.250     0.651
+                    in_domain                  9   0.111     0.381     0.657
+                    in_domain_grouped          9   0.111     0.328     0.650
+
+The gap between the two in-domain arms is pure near-duplicate retrieval, because
+both are domain-mixed and differ only in whether repeat takes of one recording
+condition were allowed to straddle the split. The mean nearest-neighbour
+similarity never reaches 1.0, so these are sibling recordings rather than
+copies of the same file.

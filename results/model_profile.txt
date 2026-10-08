@@ -1,0 +1,61 @@
+Parameter count and inference latency for the SenseFi models.
+Measured on NVIDIA GeForce RTX 4060 Laptop GPU, batch size 64, float32, median of 30 runs.
+MB is the weight size in float32. 'epochs' is what the benchmark ships as its training length.
+cpu ms/1 is the time to classify a single sample on 4 processor threads with no GPU, which is the
+situation an access point is actually in.
+
+UT_HAR_data
+model           parameters      MB  batch ms  ms/sample  cpu ms/1  epochs
+MLP             23,173,127    92.7      0.51      0.008      1.80     200
+LeNet              295,655     1.2      2.36      0.037      1.04     200
+ResNet18        11,182,142    44.7      2.66      0.042      1.91     200
+ResNet50        23,550,014    94.2      6.97      0.109      4.64     200
+ResNet101       42,568,254   170.3     15.47      0.242      8.87     200
+RNN                 10,439     0.0      0.16      0.002      0.92    3000
+GRU                 30,407     0.1      0.32      0.005      2.62     200
+LSTM                40,391     0.2      0.44      0.007      0.42     200
+BiLSTM              80,327     0.3      0.83      0.013      0.92     200
+CNN+GRU          1,429,645     5.7      1.72      0.027      3.72     200
+ViT             10,575,007    42.3      6.29      0.098      2.56     200
+
+NTU-Fi_HAR
+model           parameters      MB  batch ms  ms/sample  cpu ms/1  epochs
+MLP            175,236,998   700.9      3.94      0.061     17.49      30
+LeNet              476,582     1.9      1.27      0.020      0.31      30
+ResNet18        11,184,218    44.7      3.76      0.059      1.96      30
+ResNet50        23,550,554    94.2      8.29      0.130      4.71      30
+ResNet101       42,568,794   170.3     16.85      0.263      8.83      30
+RNN                 26,502     0.1      1.06      0.017      1.88      70
+GRU                 78,726     0.3      1.48      0.023      5.14      30
+LSTM               104,838     0.4      1.66      0.026      0.93      30
+BiLSTM             209,286     0.8      2.69      0.042      1.84      30
+CNN+GRU             57,590     0.2      7.15      0.112      6.77     100
+ViT                834,531     3.3     42.04      0.657      6.72      30
+
+NTU-Fi-HumanID
+model           parameters      MB  batch ms  ms/sample  cpu ms/1  epochs
+MLP            175,238,030   701.0      4.31      0.067     17.64      50
+LeNet              477,614     1.9      1.27      0.020      0.36      50
+ResNet18        11,188,322    44.8      3.78      0.059      2.00      50
+ResNet50        23,566,946    94.3      8.30      0.130      4.77      50
+ResNet101       42,585,186   170.3     16.85      0.263      8.84      50
+RNN                 27,022     0.1      1.06      0.017      1.89      75
+GRU                 79,246     0.3      1.49      0.023      5.11      50
+LSTM               105,358     0.4      1.66      0.026      0.94      50
+BiLSTM             209,806     0.8      2.69      0.042      1.85      50
+CNN+GRU             58,622     0.2      7.15      0.112      6.78     200
+ViT                836,339     3.3     42.10      0.658      6.40      50
+
+Widar
+model           parameters      MB  batch ms  ms/sample  cpu ms/1  epochs
+MLP              9,146,262    36.6      0.28      0.004      0.33      30
+LeNet              298,838     1.2      0.15      0.002      0.13     100
+ResNet18        11,192,375    44.8      2.20      0.034      1.98     100
+ResNet50        23,583,287    94.3      6.74      0.105      4.67     100
+ResNet101       42,601,527   170.4     15.24      0.238      8.76     100
+RNN                 31,254     0.1      0.09      0.001      0.12     500
+GRU                 90,902     0.4      0.11      0.002      0.26     200
+LSTM               120,726     0.5      0.13      0.002      0.12     200
+BiLSTM             240,022     1.0      0.20      0.003      0.23     200
+CNN+GRU             92,238     0.4      0.30      0.005      0.52     200
+ViT                 95,222     0.4      0.92      0.014      0.45     200

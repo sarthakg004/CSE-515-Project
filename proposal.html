@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Proposal</title>
+<style>
+  @page { size: A4; margin: 13mm 15mm 11mm 15mm; }
+
+  :root{
+    --ink:#15202b;
+    --muted:#5a6673;
+    --accent:#123a5e;
+    --rule:#c9d2da;
+    --tint:#f1f5f8;
+  }
+
+  html{ zoom:0.94; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:"Bitstream Charter","Charter","Liberation Serif",Georgia,serif;
+    font-size:9.3pt;
+    line-height:1.365;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- header ---------- */
+  .eyebrow{
+    font-family:"Lato","Liberation Sans",sans-serif;
+    font-size:7.4pt;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:3.5pt;
+  }
+  h1{
+    font-family:"Lato","Liberation Sans",sans-serif;
+    font-size:15.6pt;
+    font-weight:700;
+    line-height:1.16;
+    letter-spacing:-.012em;
+    margin:0 0 5pt;
+    max-width:96%;
+  }
+  .rule{ height:2.2pt; background:var(--accent); margin:0 0 6pt; }
+
+  .meta{
+    display:flex;
+    gap:0;
+    font-family:"Lato","Liberation Sans",sans-serif;
+    font-size:8.1pt;
+    border-bottom:.6pt solid var(--rule);
+    padding-bottom:5pt;
+    margin-bottom:7pt;
+  }
+  .meta div{ padding-right:11pt; min-width:0; }
+  .meta div:nth-child(1){ flex:0 1 27%; }
+  .meta div:nth-child(2){ flex:0 1 15%; }
+  .meta div:nth-child(3){ flex:1; }
+  .meta div + div{ padding-left:11pt; border-left:.6pt solid var(--rule); }
+  .meta .k{
+    display:block;
+    font-size:6.9pt;
+    font-weight:700;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:1.5pt;
+  }
+  .meta .v{ color:var(--ink); }
+  .team .v{ display:block; }
+  .team .v span{ white-space:nowrap; display:inline-block; }
+  .team .v span + span::before{ content:"\00B7\00A0"; color:#93a0ac; }
+  .team .v span + span{ margin-left:5pt; }
+
+  /* ---------- sections ---------- */
+  h2{
+    font-family:"Lato","Liberation Sans",sans-serif;
+    font-size:8.2pt;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:7.2pt 0 2.8pt;
+  }
+  h2 .num{ color:var(--rule); margin-right:4pt; }
+  p{ margin:0 0 4.2pt; text-align:justify; hyphens:auto; }
+
+  .lede{ font-size:9.8pt; }
+
+  /* ---------- deliverables ---------- */
+  .phases{ display:flex; gap:8pt; margin-top:2pt; }
+  .phase{
+    flex:1;
+    background:var(--tint);
+    border-left:2pt solid var(--accent);
+    padding:5pt 7pt 5.5pt;
+  }
+  .phase h3{
+    font-family:"Lato","Liberation Sans",sans-serif;
+    font-size:8pt;
+    font-weight:700;
+    margin:0 0 2pt;
+    letter-spacing:.03em;
+  }
+  .phase p{ margin:0; font-size:8.6pt; text-align:left; }
+
+  /* ---------- references ---------- */
+  .refs{ margin-top:6.5pt; padding-top:5pt; border-top:.6pt solid var(--rule); }
+  .refs h2{ margin-top:0; }
+  ol{
+    margin:0; padding-left:11pt;
+    column-count:2; column-gap:13pt; column-rule:.5pt solid var(--rule);
+    font-size:7.3pt; line-height:1.29;
+  }
+  li{ margin-bottom:2.6pt; break-inside:avoid; text-align:left; }
+  .url{ color:var(--accent); overflow-wrap:break-word; }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Project Proposal</div>
+  <h1>WiFi Sensing with Channel State Information for Device Free Human Activity Recognition and Indoor Localization</h1>
+  <div class="rule"></div>
+
+  <div class="meta">
+    <div>
+      <span class="k">Course</span>
+      <span class="v">CSE515, Advanced Communications Networks and Systems</span>
+    </div>
+    <div>
+      <span class="k">Instructor</span>
+      <span class="v">Dr. Ajay Pratap</span>
+    </div>
+    <div class="team">
+      <span class="k">Team</span>
+      <span class="v"><span>Saarthak Gupta (22134024)</span><span>Shreya Sangma (22134025)</span><span>Vaibhav Jain (22164020)</span></span>
+    </div>
+  </div>
+
+  <h2><span class="num">1</span>Overview</h2>
+  <p class="lede">Every WiFi device already measures how the radio signal changes on its way from the transmitter to the receiver. This measurement is called Channel State Information, or CSI. When a person walks, sits, falls, or even breathes inside a room, their body reflects and blocks those radio waves, and the CSI shifts in a pattern characteristic of that movement. An ordinary WiFi link can therefore act as a sensor. Nobody wears a device, no camera is needed, and the sensing keeps working in complete darkness and through walls.</p>
+  <p>This project trains deep learning models on real CSI recordings from public datasets to recognise what activity a person is performing and where they are standing, and then measures how accurate, how fast, and how large each model is.</p>
+
+  <h2><span class="num">2</span>Why This Topic, and Why Now</h2>
+  <p>This is not a settled textbook topic. It is an area that industry is standardising right now. The IEEE published the 802.11bf standard for WLAN Sensing in September 2025, specifying how devices advertise sensing support, set up a session, exchange measurements, and report results. Cognitive Systems, Origin AI, and Linksys already ship motion sensing features, and routers with standardised support are expected during 2026. Yet the hardest problem in the field is still open. A model trained in one room, with one person, usually performs poorly the moment it meets a different room or a different person. That gap between a laboratory demonstration and a deployable system is what this project studies.</p>
+
+  <h2><span class="num">3</span>The Gap We Have Already Found</h2>
+  <p>We began by examining how the standard SenseFi benchmark divides the Widar3.0 gesture dataset into a training half and a testing half, and we found that the division is not a fair one. Every one of the seventeen volunteers appears on both sides. So do all eight standing positions and all five body orientations. The model is therefore tested on people it has already trained on, standing where it has already seen them stand. The published accuracy is an in domain number, and it does not answer the question that matters, which is whether the system works for a person it has never met, standing somewhere it has never seen. Widar3.0 records the volunteer, the position, and the orientation of every sample in its filenames, so a correct split can be built, and to our knowledge it has not been.</p>
+
+  <h2><span class="num">4</span>Proposed Work</h2>
+  <p>We start from the SenseFi benchmark, which provides a clean PyTorch implementation of eleven model families ranging from a simple multilayer perceptron to a Vision Transformer, and we reproduce its baseline results on the UT-HAR and NTU-Fi datasets. To those results we add parameter count and inference time, which the benchmark never reports although they decide whether a model could run on real hardware. We then rebuild the Widar3.0 split so that whole conditions are held out, training on some volunteers and testing on volunteers the model has never seen, and likewise for body orientation. We measure how far accuracy falls, and that fall is our main result. We then try to recover it using data augmentation and self supervised pre training, and we report the outcome honestly, including any technique that fails to help. Finally we check whether a compressed model retains most of its accuracy, since sensing that is too expensive to compute will never run on a real access point.</p>
+
+  <h2><span class="num">5</span>Data, Tools, and Scope</h2>
+  <p>All four datasets, namely UT-HAR, NTU-Fi HAR, NTU-Fi HumanID, and Widar3.0, are publicly released by their authors and are already downloaded and verified in our repository. The work is software only and needs nothing beyond Python, PyTorch, and NumPy, so no hardware has to be built and no data collected. The survey will draw on papers from 2024 onward, on the 802.11bf standard itself, and on the products named above, so the report covers research, standards, and industry together. Every figure will be drawn by us and every idea expressed in our own words.</p>
+
+  <h2><span class="num">6</span>Deliverables</h2>
+  <div class="phases">
+    <div class="phase">
+      <h3>Midterm submission</h3>
+      <p>The literature survey, the reproduced baselines compared by accuracy, model size, and inference time, and the evidence for the split problem described above.</p>
+    </div>
+    <div class="phase">
+      <h3>End term submission</h3>
+      <p>The cross domain results on the rebuilt Widar3.0 splits, the measured effect of each recovery technique, the efficiency study, and the full report.</p>
+    </div>
+  </div>
+
+  <div class="refs">
+  <h2>References</h2>
+  <ol>
+    <li>J. Yang, X. Chen, D. Wang, H. Zou, C. X. Lu, S. Sun and L. Xie, "SenseFi: A Library and Benchmark on Deep Learning Empowered WiFi Human Sensing," <i>Patterns</i>, Cell Press, vol. 4, no. 3, 2023. <span class="url">arxiv.org/abs/2207.07859</span></li>
+    <li>IEEE Standards Association, "IEEE Std 802.11bf-2025, Amendment 4: Enhancements for Wireless LAN Sensing," published 26 September 2025. <span class="url">standards.ieee.org/ieee/802.11bf/11574</span></li>
+    <li>F. Meneghello, C. Chen, C. Cordeiro and F. Restuccia, "Toward Integrated Sensing and Communications in IEEE 802.11bf Wi-Fi Networks," <i>IEEE Communications Magazine</i>, 2023. <span class="url">arxiv.org/abs/2212.13930</span></li>
+    <li>Y. Ma, G. Zhou and S. Wang, "A Survey of Commodity WiFi Sensing in 10 Years: Current Status, Challenges, and Opportunities," 2021. <span class="url">arxiv.org/abs/2111.07038</span></li>
+    <li>J. Yang, X. Chen, H. Zou, D. Wang, Q. Xu and L. Xie, "EfficientFi: Towards Large Scale Lightweight WiFi Sensing via CSI Compression," <i>IEEE Internet of Things Journal</i>, 2022. <span class="url">arxiv.org/abs/2204.04138</span></li>
+    <li>J. Strohmayer and M. Kampel, "Data Augmentation Techniques for Cross Domain WiFi CSI Based Human Activity Recognition," 2024. <span class="url">arxiv.org/abs/2401.00964</span></li>
+    <li>J. Strohmayer and M. Kampel, "WiFlexFormer: Efficient WiFi Based Person Centric Sensing," 2024. <span class="url">arxiv.org/abs/2411.04224</span></li>
+    <li>B. Barahimi, H. Tabassum, M. Omer and O. Waqar, "Lessons from Deploying Learning Based CSI Localization on a Large Scale ISAC Platform," 2025. <span class="url">arxiv.org/abs/2504.17173</span></li>
+    <li>Y. Zheng, Y. Zhang, K. Qian, G. Zhang, Y. Liu, C. Wu and Z. Yang, "Widar3.0: WiFi Based Activity Recognition Dataset," IEEE DataPort. <span class="url">ieee-dataport.org</span>, open access dataset</li>
+    <li>Cognitive Systems Corporation, "WiFi Motion," commercial WiFi sensing product. <span class="url">cognitivesystems.com</span></li>
+  </ol>
+  </div>
+
+</body>
+</html>
